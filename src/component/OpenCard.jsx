@@ -11,9 +11,12 @@ import Alert from "@mui/material/Alert";
 import Card from "./CR_card";
 import "./css/Card.css"
 import Progress_bar from "./Progress_bar";
+import { useParams } from "react-router-dom";
+import "./css/OpenCard.css";
 
 
-const Crowdfunding = () => {
+
+const OpenCard = () => {
   const navigate = useNavigate();
   const [commentOpen, setCommentOpen] = useState(false);
   const [userBal, setUserBal] = useState(0);
@@ -36,6 +39,7 @@ const Crowdfunding = () => {
   const [rewardLikes, setRewardLikes] = useState(0);
   const [rewardComments, setRewardComments] = useState(0);
   //   const {getManager,manager} = useContext(Context);
+  const { index } = useParams();
 
   const [image1, setImage1] = useState({
     main:
@@ -112,6 +116,10 @@ const Crowdfunding = () => {
     createUser,
     createPost,
     likePost,
+    numRequests,
+    makePayment,
+    noOfContributors,
+    manager,
     getUserData,
     userPost,
     getAllPost,
@@ -120,12 +128,81 @@ const Crowdfunding = () => {
     getUserPost,
     getAllPrivatePost,
     getUserPrivatePost,
+    getNumRequests,
+    getRequests,
+    vote,
+    timeRemaining,
     // withdrawCoins,
     getRewardStatus,
   } = useContext(Context);
+  async function voteNow() {
+    await vote(index,showSuccessPopup,showErrorPopup);
+  }
+
+  var data;
+  const percent = ((30 - timeRemaining) / 30) * 100;
+//   let nextData;
+  if (!requests || isNaN(Number(index))) {
+    const call = async () => {
+      await getRequests();
+    };
+    call();
+  }
+  // Voters(index, currentAccount);
+  let cachedContractData,dummyData ;
+  
+ 
+  try {
+    // console.log("Index",index,"Requests",requests);
+    if(!requests){
+      cachedContractData = localStorage.getItem("request");
+    console.log("cachedContractData",cachedContractData);
+    if (cachedContractData) {
+       dummyData = JSON.parse(cachedContractData);
+       data = dummyData[Number(index)];
+    //    nextData = dummyData[nextIndex];
+    }
+    }
+    else{
+    data = requests[Number(index)];
+    // nextData = requests[nextIndex];
+}
+    // console.log("Data",data);
+  } catch (error) {
+    console.log("Error", error);
+  }
+
+ 
+
+  const showErrorPopup = (errorMessage) => {
+    const errorPopup = document.getElementById("error-popup");
+    // errorPopup.querySelector("span").textContent = `Error! ${errorMessage}`;
+    // errorPopup.classList.remove("hidden");
+    console.log(errorPopup);
+    setTimeout(() => {
+    //   errorPopup.classList.add("hidden");
+    }, 8000); 
+  };
+
   const handleConnectWallet = async () => {
     await ConnectWallet();
   };
+  useEffect(() => {
+    if (currentAccount === "") {
+     const run = async ()=>{await checkIfWalletIsConnected();
+           }
+           run();
+                 console.log("currentAccount",currentAccount)
+
+
+    }
+    const run1 = async ()=>{
+   await getNumRequests();
+    await getRequests();
+    }
+    run1();
+  }, [currentAccount]);
+//   const nextIndex = (Number(index) + 1) % numRequests;
 
   useEffect(() => {
     const getBal = async () => {
@@ -423,93 +500,96 @@ const Crowdfunding = () => {
           <div className="flex flex-col p-[26px] ">
             {/* campaign info start */}
             <div className="flex flex-col">
-              <div className="flex gap-7">
-                <div className="w-[255px] relative flex items-center justify-center rounded-[35px] [background:linear-gradient(176.52deg,_#cc00ff,_#181818)] h-[2.5rem] overflow-hidden text-center text-[0.875rem] text-white font-inter">
-                  <div className="w-max">Raise funds in your Network</div>
-                </div>
-                <a target="_blank" href="https://forms.gle/4oyFDynZHbFbC3Sn9">
-                  <div className="w-[205px] relative rounded-[35px] flex items-center justify-center [background:linear-gradient(176.52deg,_#0057ff,_#181818)] h-[2.5rem] overflow-hidden text-center text-[0.875rem] text-white font-inter">
-                    <div className="">Register for campaings</div>
-                  </div>
-                </a>
-
-                <div className="relative pl-[607px] h-[37px] flex items-center justify-center">
-                  <img
-                    className="w-[134px] absolute h-full object-cover"
-                    src="https://i.imgur.com/A5ouzTv.png"
-                    alt=""
-                  />
-                  <div className="w-[7.063rem] relative text-[1.063rem] font-medium font-inter text-white text-center inline-block">
-                    customercare
-                  </div>
-                </div>
-              </div>
+              
 
               <div className="flex flex-col mt-10">
-                <div className="w-[140px] relative rounded-[35px] bg-white h-[2.188rem] overflow-hidden text-left text-[0.875rem] text-gray font-inter">
-                  <div className="absolute top-[0.563rem] left-[1.688rem]">
-                    Your Listings
-                  </div>
-                </div>
+              
+              <div className="w-[28.813rem] relative text-[1.25rem] font-semibold font-inter text-[#D9D9D9] text-left inline-block h-[1.438rem]">
+<p className="">{data[0]}</p>
 
-                <div className="w-[201px] rounded-[35px]  mt-4 relative flex rounded-16xl bg-white h-[2.188rem]  text-center text-[0.875rem] text-[#0a0a0a] font-inter">
-                  <div className=" rounded-[35px] flex items-center justify-center bg-[#006DFF] w-[6.313rem] h-full overflow-hidden text-white">
-                    <div className=" font-medium h-fit my-auto ">Public</div>
-                  </div>
-                  <div className=" rounded-[35px] flex items-center justify-center bg-[#fff] w-[6.313rem] h-full overflow-hidden text-black">
-                    <div className=" font-medium h-fit my-auto ">Private</div>
-                  </div>
-                </div>
+</div>
 
-                {/* add 1 card here */}
-                <div  className="card my-5" id="cardd">
-      <img className="w-full object-cover" src={`https://i.imgur.com/pdAPWxh.png`} />
-  
+<div className="flex mt-[2.975rem]">
 
-      <p className="desc">{`Assam flood fundraising, up lift the condition.`} </p>
-
-      <div className="megaCategoryDiv">
-        <div className="categoryDiv">
-          <p>Disaster relief</p>
+    <div className="flex gap-12">
+        <div className="rounded-[15px]">
+            <img className="w-[544px] object-cover h-auto" 
+            // src={data[7]}
+            src="https://i.imgur.com/pdAPWxh.png"
+            alt="" />
         </div>
-      </div>
+        <div className="opencard_div1_card ">
+          <div className="opencard_div1_card1">
+            <div className="opencard_div1_card1_1">
+              <p>{data[6]}</p>
+            </div>
 
-      <div className="userDiv">
-        <img
-          src="https://i.imgur.com/NTk83QC.png"
-          alt="user"
-        />
-        <p className="user">Posted by Ravi Sharma</p>
-      </div>
-
-      <div className="preFund">
-        <div className="fund">
-          <p>10</p>
-
-          <div className="ethh">
+            <div className="opencard_div1_card1_2 flex items-center justify-center">
+              <p>
+                {data[5]} / {noOfContributors} Votes
+              </p>
+            </div>
+          </div>
+          {/* {personalBal>0?(data[5](currentAccount)?):(<div></div>)} */}
+          <div onClick={voteNow} className="opencard_div1_card2 effect ">
+            <p title="Vote">Vote for Good</p>
+          </div>
+          
+          <div className="opencard_div1_card3">
+            <div className="opencard_div1_card3_1">
+              <p>Goal amount :</p>
+            </div>
+            <div className="opencard_div1_card3_2">
+              <p>{data[3]}</p>
+              <div className="opencard_div1_card3_2_1">
+                <img
+                  src="https://cdn.discordapp.com/attachments/1151935478526910564/1152287827929866260/image.png"
+                  alt=""
+                />
+                <p>ETH</p>
+              </div>
+            </div>
+          </div>
+          <div className="opencard_div1_card4">
+            <div className="opencard_div1_card4_1">
+              <p>Wallet address :</p>
+            </div>
+            <div className="opencard_div1_card4_2">
+              <p> {data[1]}</p>
+            </div>
+          </div>
+          <div className="opencard_div1_card5">
+            <div className="opencard_div1_card5_1">
+              <Progress_bar bgcolor="#16BDCA" progress={percent} height={30} />
+            </div>
+            <div className="opencard_div1_card5_2">
+              <span>{timeRemaining} </span> <p> days left</p>
+            </div>
+          </div>
+          <div className="opencard_div1_card6">
             <img
-              src="https://i.imgur.com/QinPqJY.png"
-              alt="ETH"
+              src="https://cdn.discordapp.com/attachments/1151935478526910564/1152319641100746903/user-profile-icon-front-side-with-white-background_187299-40010.png"
+              alt=""
             />
-            <p>ETH</p>
+
+            <div className="opencard_div1_card6_1">
+              <p className="first"> {data[2]}</p>
+              <p>Campaigner</p>
+            </div>
+          </div>
+          <div className="opencard_div1_card7">
+            {(currentAccount===manager)&&(<div title="Pay" onClick={()=>{makePayment(index,showSuccessPopup,showErrorPopup)}} className="opencard_div1_card7_1  animate-pulse  flex-wrap cursor-pointer rounded">
+              Make Payment
+            </div>)}
           </div>
         </div>
-      </div>
-
-      <div className="megaProgress">
-        <div className="progress">
-          <Progress_bar bgcolor="#16BDCA" progress='60' height={30} />
-          
-        </div>
-
-        <p>{30} days</p>
-      </div>
-
-      <div className="vote">
-        <p>18/25 votes</p>
-      </div>
     </div>
-                {/* add 1 card here */}
+
+</div>
+
+               
+
+               
 
                 <div className="relative my-5">
                   <div className="w-full absolute top-1/2 bg-[#D0D0D0] box-border h-[0.063rem] border-t-[1px] border-solid border-white" />
@@ -749,4 +829,4 @@ asssd
   );
 };
 
-export default Crowdfunding;
+export default OpenCard;

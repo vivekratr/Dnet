@@ -25,6 +25,8 @@ import Withdraw from "./component/Withdraw";
 import Bro from "./component/Bro";
 import Alerts from "./component/Alerts";
 import Crowdfunding from "./component/Crowdfunding";
+import OpenCard from "./component/OpenCard";
+import ChatUI from "./component/ChatUI";
 function App() {
   return ( 
     <BrowserRouter>
@@ -92,6 +94,8 @@ function App() {
               path="/crowdfunding"
               element={<Crowdfunding /*state = {state}*/ />}
             />
+            <Route path="/card/:index" element={<OpenCard />} />
+            <Route path="/chat" element={<ChatUI />} />
           </Routes>
           {/* {<RegisterPage/>}  */}
         </SocoinProvider>

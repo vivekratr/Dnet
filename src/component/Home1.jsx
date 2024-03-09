@@ -692,7 +692,7 @@ const Home1 = () => {
               onClick={handlePrev}
               className="relative mr-5  w-[3.625rem] hover: h-[3.63rem] overflow-hidden"
               alt=""
-              src="https://cdn.discordapp.com/attachments/1177493315898314792/1184104350436560906/image.png?ex=658ac21c&is=65784d1c&hm=3285308a6c83a4d8205ea999e393be2c3fd9d017d80e021cf1a96e6bd8e96d7d&"
+              src="https://i.imgur.com/0BViCn6.png"
             />
 
             {/* {
@@ -741,7 +741,7 @@ const Home1 = () => {
               onClick={handleNext}
               className="relative ml-5  w-[3.625rem] hover: h-[3.63rem] overflow-hidden rotate-180"
               alt=""
-              src="https://cdn.discordapp.com/attachments/1177493315898314792/1184104350436560906/image.png?ex=658ac21c&is=65784d1c&hm=3285308a6c83a4d8205ea999e393be2c3fd9d017d80e021cf1a96e6bd8e96d7d&"
+              src="https://i.imgur.com/0BViCn6.png"
             />
           </div>
         </div>
@@ -766,7 +766,7 @@ const Home1 = () => {
               <img
                 className="absolute top-[0.5rem] left-[5.5999rem] w-[1.65rem] h-[1.74rem] object-cover"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074100763795456/image.png?ex=658aa5f0&is=657830f0&hm=56f437a8feb464628765049711c4cf1d08f05c532a8972598d0b44065b616292&"
+                src="https://imgur.com/sdS4VIe"
               />
             </div>
 
@@ -846,22 +846,22 @@ const Home1 = () => {
               <img
                 className="absolute top-[5.06rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+                src="https://i.imgur.com/2ksquEu.png"
               />
               <img
                 className="absolute top-[9.38rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+                src="https://i.imgur.com/2ksquEu.png"
               />
               <img
                 className="absolute top-[13.69rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+                src="https://i.imgur.com/2ksquEu.png"
               />
               <img
                 className="absolute top-[18rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+                src="https://i.imgur.com/2ksquEu.png"
               />
               <div className="absolute top-[21.88rem] left-[1.06rem] font-medium text-cornflowerblue">
                 Show More
