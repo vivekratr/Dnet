@@ -354,7 +354,7 @@ function handleWalletDialog(){
             </div>
           </div>
 
-          <div className="relative w-[12rem] h-[2.25rem] text-left text-[0.8rem] text-white font-inter">
+          <div className="relative mt-5 w-[12rem] h-[2.25rem] text-left text-[0.8rem] text-white font-inter">
             <b className="absolute top-[0rem] left-[2.56rem] h-max w-max">
               {" "}
               {userData.name}
@@ -372,7 +372,7 @@ function handleWalletDialog(){
             <img
               className="absolute cursor-pointer top-[0rem] left-[11.75rem] w-[1.5rem] h-[1.5rem] overflow-hidden"
               alt=""
-              src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074199577415741/image.png?ex=658aa608&is=65783108&hm=49441e880ec9e668ecd4fb83e21c896b03b202d851882189adb757ce47dd3e6f&"
+              src="https://i.imgur.com/UU8RPw0.png"
             />
           </div>
         </div>
