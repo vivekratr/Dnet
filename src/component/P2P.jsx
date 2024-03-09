@@ -12,6 +12,8 @@ import Card from "./CR_card";
 import "./css/Card.css"
 import Progress_bar from "./Progress_bar";
 import P2Pcard from "./P2Pcard";
+import P2Pwallet from "./P2Pwallet";
+
 
 
 const P2P = () => {
@@ -36,6 +38,7 @@ const P2P = () => {
   const [spin, setSpin] = useState(false);
   const [rewardLikes, setRewardLikes] = useState(0);
   const [rewardComments, setRewardComments] = useState(0);
+  const [isWalletOpen, setIsWalletOpen] = useState(false);
   //   const {getManager,manager} = useContext(Context);
 
   const [image1, setImage1] = useState({
@@ -75,6 +78,11 @@ const P2P = () => {
     }, 5000);
   };
 
+function handleWalletDialog(){
+    setIsWalletOpen((prev)=>{
+        return !prev
+    })
+}
   const handleDecrementWithdraw = () => {
     if (countWithdraw > 10) {
       setCountWithdraw((prevCount) => prevCount - 1);
@@ -422,7 +430,7 @@ const P2P = () => {
           </div>
           {/* top section end */}
           <div className="flex flex-col p-4">
-            <div className="flex">
+            <div className="flex relative">
 
             
             <div className="flex gap-6 pl-[49px]">
@@ -446,8 +454,12 @@ const P2P = () => {
                   </div>
                 </div>
 
-                <div className="ml-[63px]">
+                <div onClick={ handleWalletDialog} className="cursor-pointer ml-[63px]">
                     <img className="w-[55px] object-cover" src="https://i.imgur.com/66R0Osi.png" alt="" />
+                </div>
+
+                <div className={`${isWalletOpen?'flex':'hidden'} absolute z-10 right-[120px] top-[70px]`}>
+                    <P2Pwallet close = {handleWalletDialog}/>
                 </div>
 
                 </div>
