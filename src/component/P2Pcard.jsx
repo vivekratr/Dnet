@@ -3,7 +3,7 @@ import React from "react";
 const P2Pcard = () => {
   return (
     <div
-      className="w-[291px] h-[145px] flex flex-col p-4
+      className="w-[291px]  gap-3 relative rounded-2xl [background:linear-gradient(180.13deg,_#202020,_#181818)] box-border h-max- overflow-hidden text-left text-[0.5rem] text-white font-inter border-t-[2px] border-solid border-[#282828] border-r-[1px] border-l-[1px] flex flex-col p-4
     "
     >
       <div className="flex gap-2">
@@ -38,7 +38,7 @@ const P2Pcard = () => {
               />
             </div>
 
-            <div className="relative bottom-1">
+            <div className="relative bottom-0">
               <img
                 className="w-[6px] object-cover"
                 src="https://i.imgur.com/67n3ln4.png"

@@ -182,7 +182,7 @@ const P2P = () => {
     getBal();
   }, [currentAccount, refresh, num]);
   return (
-    <div className="bg-black   ">
+    <div className="bg-black min-h-screen   ">
       <div className="flex ">
         {/* alert success */}
         <div
@@ -453,7 +453,7 @@ const P2P = () => {
                 </div>
 
                 {/* card section */}
-                <div className="grid gap-5 ml-3 grid-cols-3">
+                <div className="grid gap-5 mt-5 ml-[49px] grid-cols-3">
                     <P2Pcard/>
 
                 </div>
