@@ -9,6 +9,10 @@ import ProfilePost from "./ProfilePost";
 import Withdraw from "./Withdraw";
 import Alert from "@mui/material/Alert";
 import Card from "./CR_card";
+import "./css/Card.css"
+import Progress_bar from "./Progress_bar";
+
+
 const Crowdfunding = () => {
   const navigate = useNavigate();
   const [commentOpen, setCommentOpen] = useState(false);
@@ -458,7 +462,53 @@ const Crowdfunding = () => {
                 </div>
 
                 {/* add 1 card here */}
+                <div  className="card" id="cardd">
+      <img  src={`https://i.imgur.com/pdAPWxh.png`} />
+  
 
+      <p className="desc">{`Assam flood fundraising, up lift the condition.`} </p>
+
+      <div className="megaCategoryDiv">
+        <div className="categoryDiv">
+          <p>Disaster relief</p>
+        </div>
+      </div>
+
+      <div className="userDiv">
+        <img
+          src="https://i.imgur.com/NTk83QC.png"
+          alt="user"
+        />
+        <p className="user">Posted by Ravi Sharma</p>
+      </div>
+
+      <div className="preFund">
+        <div className="fund">
+          <p>10</p>
+
+          <div className="ethh">
+            <img
+              src="https://i.imgur.com/QinPqJY.png"
+              alt="ETH"
+            />
+            <p>ETH</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="megaProgress">
+        <div className="progress">
+          <Progress_bar bgcolor="#16BDCA" progress='60' height={30} />
+          
+        </div>
+
+        <p>{30} days</p>
+      </div>
+
+      <div className="vote">
+        <p>18 votes</p>
+      </div>
+    </div>
                 {/* add 1 card here */}
 
                 <div className="relative my-5">
