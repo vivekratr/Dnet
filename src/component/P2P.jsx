@@ -13,6 +13,7 @@ import "./css/Card.css"
 import Progress_bar from "./Progress_bar";
 import P2Pcard from "./P2Pcard";
 import P2Pwallet from "./P2Pwallet";
+import P2Pregister from "./P2Pregister";
 
 
 
@@ -190,7 +191,11 @@ function handleWalletDialog(){
     getBal();
   }, [currentAccount, refresh, num]);
   return (
-    <div className="bg-black min-h-screen   ">
+    <div className="bg-black min-h-screen relative  ">
+        {/* register */}
+        {/* <div className="h-full w-full flex items-center justify-center backdrop-blur-lg z-20 absolute">
+            <P2Pregister />
+        </div> */}
       <div className="flex ">
         {/* alert success */}
         <div
