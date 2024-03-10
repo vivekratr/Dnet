@@ -125,7 +125,7 @@ const SendPost = (props) => {
         </div>
         {/* alert info end */}
           <div className='flex'>
-        <img  onClick={() => props.close(false)} className="relative right-3 bottom-2 w-auto h-[1rem] overflow-hidden object-cover" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184480958360076439/image.png?ex=658c20db&is=6579abdb&hm=c246e426d10817641944ad7b6a197d1f2f68d8b0c82aced7a97222e7e40e0f5e&" />
+        <img  onClick={() => props.close(false)} className="relative right-3 bottom-2 w-auto h-[1rem] overflow-hidden object-cover" alt="" src="https://i.imgur.com/LIaFXhU.png" />
 
         <div id='1'
             className={`flex gap-2 ml-3 ${activeDiv === '1' ? 'border-b-2 border-cornflowerblue border-solid' : ''}`}

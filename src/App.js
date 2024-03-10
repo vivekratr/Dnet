@@ -28,6 +28,7 @@ import Crowdfunding from "./component/Crowdfunding";
 import OpenCard from "./component/OpenCard";
 import ChatUI from "./component/ChatUI";
 import P2P from "./component/P2P";
+import Ledger from "./component/Ledger";
 function App() {
   return ( 
     <BrowserRouter>
@@ -98,6 +99,7 @@ function App() {
             <Route path="/card/:index" element={<OpenCard />} />
             <Route path="/chat" element={<ChatUI />} />
             <Route path="/p2p" element={<P2P />} />
+            <Route path="/ledger" element={<Ledger />} />
           </Routes>
           {/* {<RegisterPage/>}  */}
         </SocoinProvider>

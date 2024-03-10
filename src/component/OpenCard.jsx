@@ -368,7 +368,7 @@ const OpenCard = () => {
           <div className="flex ">
             <img
               className="relative bottom-[3rem] w-full h-[9.25rem] object-cover"
-              src="https://i.imgur.com/JoQomCC.jpeg"
+              src="https://i.imgur.com/6YjIbLD.png"
               alt=""
             />
           </div>

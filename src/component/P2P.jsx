@@ -14,7 +14,7 @@ import Progress_bar from "./Progress_bar";
 import P2Pcard from "./P2Pcard";
 import P2Pwallet from "./P2Pwallet";
 import P2Pregister from "./P2Pregister";
-
+import axios from "axios";
 
 
 const P2P = () => {
@@ -40,7 +40,9 @@ const P2P = () => {
   const [rewardLikes, setRewardLikes] = useState(0);
   const [rewardComments, setRewardComments] = useState(0);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
-  const [scanToPay,setScanToPay] = useState(true)
+  const [scanToPay,setScanToPay] = useState(false)
+  const [call,setCall] = useState(false)
+  const [bruno,setBruno] = useState('')
 
   //   const {getManager,manager} = useContext(Context);
 
@@ -86,6 +88,19 @@ function handleWalletDialog(){
         return !prev
     })
 }
+const handleSubmit = async () => {
+  try {
+    const response = await axios.post('http://127.0.0.1:5000/cc', {
+      number : bruno
+    });
+    console.log('you just clicked submit');
+
+    console.log('Response from server:', response.data);
+  } catch (error) {
+    console.error('Error sending data:', error);
+  }
+};
+
 
 function handleQr(){
     setScanToPay((prev)=>{
@@ -329,7 +344,7 @@ function handleQr(){
           <div className="flex ">
             <img
               className="relative bottom-[3rem] w-full h-[9.25rem] object-cover"
-              src="https://i.imgur.com/JoQomCC.jpeg"
+              src="https://i.imgur.com/6YjIbLD.png"
               alt=""
             />
           </div>
@@ -367,6 +382,33 @@ function handleQr(){
                   src="https://cdn.discordapp.com/attachments/1177493315898314792/1184070090631675944/image.png?ex=658aa234&is=65782d34&hm=cbd1ac4ff02e23412a1fbc94566b279be521568e7d8bdb10bc865f6052f3d969&"
                 />
                 <div className="relative font-medium">Communities</div>
+              </div>
+              <div
+                onClick={() => {
+                  navigate("/crowdfunding");
+                }}
+                className="flex flex-row hover:opacity-50 cursor-pointer items-center justify-start gap-[0.63rem]"
+              >
+                <img
+                  className="relative w-[1.06rem] h-[1rem]"
+                  alt=""
+                  src="https://i.imgur.com/6XKA7yr.png"
+                />
+                <div className="relative font-medium">Crowdfunding</div>
+              </div>
+
+              <div
+                onClick={() => {
+                  navigate("/p2p");
+                }}
+                className="flex flex-row hover:opacity-50 cursor-pointer items-center justify-start gap-[0.63rem]"
+              >
+                <img
+                  className="relative w-[1.06rem] h-[1rem]"
+                  alt=""
+                  src="https://i.imgur.com/6XKA7yr.png"
+                />
+                <div className="relative font-medium">P2P</div>
               </div>
               {/* <div className="flex flex-row items-start justify-start gap-[0.63rem]">
 <img className="relative w-[1.25rem] h-[1.25rem]" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069996142415983/image.png?ex=658aa21e&is=65782d1e&hm=0ce679d0e2e97dd09997ae88aa90f3cd824d6d5ab5263d9948b64fa0db0bd636&" />
@@ -468,7 +510,9 @@ function handleQr(){
 </div>
             </div>
 
-            <div className="w-[205px] ml-[24px] flex items-center justify-center relative rounded-[35px] [background:linear-gradient(177.22deg,_#fff,_#181818)] h-[2.813rem] overflow-hidden text-center text-[0.875rem] text-black font-inter">
+            <div onClick={()=>{
+              navigate('/ledger')
+            }} className="w-[205px] ml-[24px] flex items-center justify-center relative rounded-[35px] [background:linear-gradient(177.22deg,_#fff,_#181818)] h-[2.813rem] overflow-hidden text-center text-[0.875rem] text-black font-inter">
 <div className=" font-medium inline-block w-[8.938rem]">All transactions Ledger</div>
 </div>
 
@@ -478,7 +522,7 @@ function handleQr(){
           <div className=" font-medium">Buy Money</div>
         </div>
 
-<div className="relative ml-[307px] h-[37px] flex items-center justify-center">
+<div onClick={()=>{setCall(true)}} className="relative ml-[307px] h-[37px] flex items-center justify-center">
                   <img
                     className="w-[134px] absolute h-full object-cover"
                     src="https://i.imgur.com/A5ouzTv.png"
@@ -487,6 +531,15 @@ function handleQr(){
                   <div className="w-[7.063rem] relative text-[1.063rem] font-medium font-inter text-white text-center inline-block">
                     customercare
                   </div>
+                  <div className={`absolute p-5 flex flex-col gap-4 bg-blue-300 rounded-xl z-20 w-[400px] ${call ? 'block' : 'hidden'} `}>
+            <label htmlFor="">Enter your Number:</label>
+            <input value={bruno} onChange={(e)=>{
+              
+              setBruno(e.target.value)
+            }} type="text" />
+
+            <button className='' onClick={handleSubmit}>Submit</button>
+            </div>
                 </div>
 
                 <div onClick={ handleWalletDialog} className="cursor-pointer ml-[63px]">
@@ -577,19 +630,19 @@ function handleQr(){
                 @amitsinha.dso
               </div>
               <img
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+                src="https://i.imgur.com/DIdPWfs.png"
                 className="absolute top-[5.13rem] left-[1.06rem] rounded-lg bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
               />
               <img
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+                src="https://i.imgur.com/DIdPWfs.png"
                 className="absolute top-[9.44rem] left-[1.06rem] rounded-lg bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
               />
               <img
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+                src="https://i.imgur.com/DIdPWfs.png"
                 className="absolute top-[13.75rem] left-[1.06rem] rounded-lg bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
               />
               <img
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+                src="https://i.imgur.com/DIdPWfs.png"
                 className="absolute top-[18.06rem] left-[1.06rem] rounded-lg bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
               />
              

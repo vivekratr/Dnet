@@ -12,7 +12,9 @@ const Getstarted = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative bg-black box-border w-full h-[800px] overflow-hidden text-left text-[16px] text-white font-inter ">
+    <div onClick={()=>{
+      navigate("/home1")
+    }} className="relative bg-black box-border w-full h-[800px] overflow-hidden text-left text-[16px] text-white font-inter ">
       <div onClick={()=>{
         navigate("/home1")
       }} className="absolute top-[550px] left-[680px] rounded-[44px] [background:linear-gradient(180.13deg,_#202020,_#181818)] box-border w-[132px] h-11 overflow-hidden border-t-[2px] border-solid border-[#282828] border-r-[1px] border-l-[1px]">

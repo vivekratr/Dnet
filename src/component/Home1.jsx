@@ -534,7 +534,7 @@ const Home1 = () => {
           <div className="flex ">
             <img
               className="relative  bottom-[2.5rem] w-full h-[9.25rem] object-cover"
-              src="https://i.imgur.com/JoQomCC.jpeg"
+              src="https://i.imgur.com/6YjIbLD.png"
               alt=""
             />
           </div>
@@ -602,6 +602,34 @@ const Home1 = () => {
                 />
                 <div className="relative  font-medium">Communities</div>
               </div>
+
+              <div
+                onClick={() => {
+                  navigate("/crowdfunding");
+                }}
+                className="flex flex-row hover:opacity-50 cursor-pointer items-center justify-start gap-[0.63rem]"
+              >
+                <img
+                  className="relative w-[1.06rem] h-[1rem]"
+                  alt=""
+                  src="https://i.imgur.com/6XKA7yr.png"
+                />
+                <div className="relative font-medium">Crowdfunding</div>
+              </div>
+
+              <div
+                onClick={() => {
+                  navigate("/p2p");
+                }}
+                className="flex flex-row hover:opacity-50 cursor-pointer items-center justify-start gap-[0.63rem]"
+              >
+                <img
+                  className="relative w-[1.06rem] h-[1rem]"
+                  alt=""
+                  src="https://i.imgur.com/6XKA7yr.png"
+                />
+                <div className="relative font-medium">P2P</div>
+              </div>
               {/* <div className="flex flex-row items-start justify-start gap-[0.63rem]">
 <img className="relative w-[1.25rem] h-[1.25rem]" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069996142415983/image.png?ex=658aa21e&is=65782d1e&hm=0ce679d0e2e97dd09997ae88aa90f3cd824d6d5ab5263d9948b64fa0db0bd636&" />
 <div className="relative font-medium">Profile</div>
@@ -662,7 +690,7 @@ const Home1 = () => {
             <div className="absolute top-[37.5rem] left-[0.5rem]">
               <img
                 className="w-[45px] h-[45px]"
-                src="https://cdn.discordapp.com/attachments/1184864067295395960/1185768064957042849/image.png?ex=6590cf91&is=657e5a91&hm=84c157e2d696e4249b182ad84fcf48f519e7efe0f4ec500e4e7921448d2c3259&"
+                src="https://i.imgur.com/RvkEpDk.png"
                 alt=""
               />
             </div>

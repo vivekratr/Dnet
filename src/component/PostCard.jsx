@@ -1,8 +1,7 @@
 import { Context } from "../context/ContextProvider";
 import React, { useState, useContext, useEffect } from "react";
 import CommentData from "./CommentData";
-import Alert from '@mui/material/Alert';
-
+import Alert from "@mui/material/Alert";
 
 const PostCard = (props) => {
   const {
@@ -22,13 +21,14 @@ const PostCard = (props) => {
   const [inputComment, setInputComment] = useState("");
   const [tipCoin, setTipCoin] = useState(1);
   const [spin, setSpin] = useState(false);
-  const [image1,setImage1] =useState({
-    main: 'https://i.imgur.com/2ksquEu.png',
-    alternate: 'https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&',
-  })
-  const [isAlertSuccess,setIsAlertSuccess] = useState(false)
-  const [successAlertContent,setSuccessAlertContent]= useState('');
-  const [isAlertInfo,setIsAlertInfo] = useState(false)
+  const [image1, setImage1] = useState({
+    main: "https://i.imgur.com/2ksquEu.png",
+    alternate:
+      "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
+  });
+  const [isAlertSuccess, setIsAlertSuccess] = useState(false);
+  const [successAlertContent, setSuccessAlertContent] = useState("");
+  const [isAlertInfo, setIsAlertInfo] = useState(false);
 
   function handleTextComment(e) {
     setInputComment(e.target.value);
@@ -39,13 +39,12 @@ const PostCard = (props) => {
   }
 
   const showSuccessPopup = (successMessage) => {
-    console.log('ShowSuccess',successMessage);
+    console.log("ShowSuccess", successMessage);
     setSuccessAlertContent(successMessage);
     setIsAlertSuccess(true);
     setTimeout(() => {
-    setIsAlertSuccess(false);
-
-    }, 5000); 
+      setIsAlertSuccess(false);
+    }, 5000);
   };
 
   console.log("yoyo index", props);
@@ -75,15 +74,22 @@ const PostCard = (props) => {
   return (
     <div className="flex items-center justify-center">
       <div className=" flex mt-4 h-[33.635rem] w-[36.188rem] hover:bg-[#3B3939]  rounded-lg transition-all duration-700 ease-in-out ">
-          {/* alert success */}
-          <div  className={`absolute z-20 ml-[8rem] mb-12 ${isAlertSuccess?'flex':'hidden'}`}>
-        <Alert severity="success">{successAlertContent}</Alert>
+        {/* alert success */}
+        <div
+          className={`absolute z-20 ml-[8rem] mb-12 ${
+            isAlertSuccess ? "flex" : "hidden"
+          }`}
+        >
+          <Alert severity="success">{successAlertContent}</Alert>
         </div>
         {/* alert success end */}
         {/* alert info */}
-        <div className={`absolute z-20 ml-[8rem] mb-12 ${isAlertInfo?'flex':'hidden'}`}>
-
-        <Alert severity="info">Waiting for Metamask...</Alert>
+        <div
+          className={`absolute z-20 ml-[8rem] mb-12 ${
+            isAlertInfo ? "flex" : "hidden"
+          }`}
+        >
+          <Alert severity="info">Waiting for Metamask...</Alert>
         </div>
         {/* alert info end */}
         {/* spinner */}
@@ -143,33 +149,42 @@ const PostCard = (props) => {
 
         <div className="relative w-full flex flex-col items-start justify-start gap-[2.31rem] top-6 right-2">
           <img
-           onClick={() => {
-            setImage1((prev) => {
-              const newImages = { ...prev };
-              return {
-                ...prev,
-                main: newImages.alternate,
-                alternate: newImages.main,
-              };
-            });
-          }}
+            onClick={() => {
+              setImage1((prev) => {
+                const newImages = { ...prev };
+                return {
+                  ...prev,
+                  main: newImages.alternate,
+                  alternate: newImages.main,
+                };
+              });
+            }}
             className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0"
             alt=""
             src={image1.main}
           />
-          <div  onClick={async () => {
-              await likePost(props.index, setSpin,showSuccessPopup,setIsAlertInfo);
+          <div
+            onClick={async () => {
+              await likePost(
+                props.index,
+                setSpin,
+                showSuccessPopup,
+                setIsAlertInfo
+              );
 
               setLikess(likess + 1);
-            }} className="relative bottom-2 h-[6rem]">
-
-          <span className="text-white h-fit w-fit  p-5 rounded-full relative left-0 top-[4.6rem] z-10 "> {likess} </span>
-          <img
-           
-            className="relative rounded-16xl w-[52px] h-[94px] overflow-hidden shrink-0"
-            alt=""
-            src="https://cdn.discordapp.com/attachments/1184864067295395960/1185766981467656302/image.png?ex=6590ce8e&is=657e598e&hm=02d2c0a07638801b7bcdc0889b954a1036cb607020a8531ac63e40fe1bc8d09b&"
-          />
+            }}
+            className="relative bottom-2 h-[6rem]"
+          >
+            <span className="text-white h-fit w-fit  p-5 rounded-full relative left-0 top-[4.6rem] z-10 ">
+              {" "}
+              {likess}{" "}
+            </span>
+            <img
+              className="relative rounded-16xl w-[52px] h-[94px] overflow-hidden shrink-0"
+              alt=""
+              src="https://i.imgur.com/49oV4MO.png"
+            />
           </div>
           <img
             onClick={() => {
@@ -177,12 +192,12 @@ const PostCard = (props) => {
             }}
             className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0"
             alt="comment"
-            src="https://cdn.discordapp.com/attachments/1177493315898314792/1184073740812812328/image.png?ex=658aa59a&is=6578309a&hm=c6ccf3bf96f0c8d028967dcd26daecc00e88580766cab2cc298554b879b03a6f&"
+            src="https://i.imgur.com/9bUWJkC.png"
           />
           <img
             className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0"
             alt="share"
-            src="https://cdn.discordapp.com/attachments/1177493315898314792/1184073770743365662/image.png?ex=658aa5a1&is=657830a1&hm=b100667b4a32067d07093eae4d24a1e79af8b7e66502693c5f9d84ebd7a8dff1&"
+            src="https://i.imgur.com/DQj9qV1.png"
           />
           <img
             onClick={() => {
@@ -190,7 +205,7 @@ const PostCard = (props) => {
             }}
             className="relative rounded-16xl hover:scale-105 hover:animate-bounce w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0"
             alt="tip"
-            src="https://cdn.discordapp.com/attachments/1177493315898314792/1184073823969083442/image.png?ex=658aa5ae&is=657830ae&hm=f859cf2f5c0265673b3b096dfb579abba18bf5ec706a07e3a22003d565b8d637&"
+            src="https://i.imgur.com/sdS4VIe.png"
           />
         </div>
         {/* comment modal  */}
@@ -243,7 +258,13 @@ const PostCard = (props) => {
               <div
                 onClick={async () => {
                   console.log("inputted text", inputComment);
-                  await addComments(props.index, inputComment, setSpin,showSuccessPopup,setIsAlertInfo);
+                  await addComments(
+                    props.index,
+                    inputComment,
+                    setSpin,
+                    showSuccessPopup,
+                    setIsAlertInfo
+                  );
                 }}
                 className="h-3 ml-0  w-auto"
               >
@@ -304,7 +325,13 @@ const PostCard = (props) => {
                 <div className="relative mx-auto hover:scale-105 hover:opacity-90 mt-7 rounded-[97px] bg-cornflowerblue box-border w-[6rem] h-[2.46rem] overflow-hidden text-left text-[1.13rem] text-white font-inter border-t-[1px] border-solid border-lightskyblue border-r-[1px] border-l-[1px]">
                   <div
                     onClick={async () => {
-                      await tipUser(props.keys, tipCoin, setSpin,showSuccessPopup,setIsAlertInfo);
+                      await tipUser(
+                        props.keys,
+                        tipCoin,
+                        setSpin,
+                        showSuccessPopup,
+                        setIsAlertInfo
+                      );
                     }}
                     className="absolute top-[0.38rem] left-[1.99rem] font-semibold"
                   >
@@ -344,7 +371,7 @@ export default PostCard;
 //             </div>
 //             <img
 //               alt="s"
-//               src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+//               src="https://i.imgur.com/DIdPWfs.png"
 //               className="absolute top-[0rem] left-[0rem] rounded-[69px] bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
 //             />
 //           </div>
@@ -367,9 +394,9 @@ export default PostCard;
 
 //             }} className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184073624966148096/image.png?ex=658aa57f&is=6578307f&hm=bd092fc2643aaf8cd2c5fc0a8455c9ff96626caec4fb4e831d00385529af1179&" />
 // <img className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184073701864509470/image.png?ex=658aa591&is=65783091&hm=5200cf8850db9ca96a4138b7dd7b371423ce96da44a53ad308363712b5b0f156&" />
-// <img className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184073740812812328/image.png?ex=658aa59a&is=6578309a&hm=c6ccf3bf96f0c8d028967dcd26daecc00e88580766cab2cc298554b879b03a6f&" />
-// <img className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184073770743365662/image.png?ex=658aa5a1&is=657830a1&hm=b100667b4a32067d07093eae4d24a1e79af8b7e66502693c5f9d84ebd7a8dff1&" />
-// <img className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184073823969083442/image.png?ex=658aa5ae&is=657830ae&hm=f859cf2f5c0265673b3b096dfb579abba18bf5ec706a07e3a22003d565b8d637&" />
+// <img className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0" alt="" src="https://i.imgur.com/9bUWJkC.png" />
+// <img className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0" alt="" src="https://i.imgur.com/DQj9qV1.png" />
+// <img className="relative rounded-16xl w-[3.25rem] h-[3.25rem] overflow-hidden shrink-0" alt="" src="https://i.imgur.com/sdS4VIe.png" />
 
 // </div>
 //       </div>

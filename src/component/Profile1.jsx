@@ -369,6 +369,33 @@ const Profile1 = () => {
                 />
                 <div className="relative font-medium">Communities</div>
               </div>
+              <div
+                onClick={() => {
+                  navigate("/crowdfunding");
+                }}
+                className="flex flex-row hover:opacity-50 cursor-pointer items-center justify-start gap-[0.63rem]"
+              >
+                <img
+                  className="relative w-[1.06rem] h-[1rem]"
+                  alt=""
+                  src="https://i.imgur.com/6XKA7yr.png"
+                />
+                <div className="relative font-medium">Crowdfunding</div>
+              </div>
+
+              <div
+                onClick={() => {
+                  navigate("/p2p");
+                }}
+                className="flex flex-row hover:opacity-50 cursor-pointer items-center justify-start gap-[0.63rem]"
+              >
+                <img
+                  className="relative w-[1.06rem] h-[1rem]"
+                  alt=""
+                  src="https://i.imgur.com/6XKA7yr.png"
+                />
+                <div className="relative font-medium">P2P</div>
+              </div>
               {/* <div className="flex flex-row items-start justify-start gap-[0.63rem]">
 <img className="relative w-[1.25rem] h-[1.25rem]" alt="" src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069996142415983/image.png?ex=658aa21e&is=65782d1e&hm=0ce679d0e2e97dd09997ae88aa90f3cd824d6d5ab5263d9948b64fa0db0bd636&" />
 <div className="relative font-medium">Profile</div>
