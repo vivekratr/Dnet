@@ -1,12 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios';
+import { Context } from "../context/ContextProvider";
 
-const ChatUI = () => {
+
+const ChatUI = (props) => {
     const [messages, setMessages] = useState([]);
     const [userInput, setUserInput] = useState('');
     const [isChatboxOpen, setIsChatboxOpen] = useState(true);
-    const userID =  '0';
+    const userID = props.currentAccount === '0x2D0cCca38fd0fFc505014798b5C8a47A7a2152F4'?  '1':'0';
     const update = 1
+    const {
+        checkIfWalletIsConnected,
+        ConnectWallet,
+        currentAccount,
+        createUser,
+        createPost,
+        likePost,
+        getUserData,
+        userPost,
+        getAllPost,
+        refresh,
+        getUserPost,
+        getAllPrivatePost,
+        getUserPrivatePost,
+        withdrawCoins,
+        getRewardStatus,
+      } = useContext(Context);
+      const handleConnectWallet = async () => {
+        await ConnectWallet();
+      };
 
     const fetchData1 = async () => {
         try {
@@ -47,14 +69,15 @@ const ChatUI = () => {
     };
 
     return (
-        <div className="fixed bottom-0 right-0 mb-4 mr-4">
-            <button onClick={toggleChatbox} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 flex items-center">
+        <div className="relative top-[132px
+        ] mb-4 mr-4">
+            {/* <button onClick={toggleChatbox} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 Chat with Admin Bot
-            </button>
-            <div className={`fixed bottom-16 right-4 w-96 ${isChatboxOpen ? '' : 'hidden'}`}>
+            </button> */}
+            <div className={`relative   w-96 ${isChatboxOpen ? '' : 'hidden'}`}>
                 <div className="bg-white shadow-md rounded-lg max-w-lg w-full">
                     <div className="p-4 border-b bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
                         <p className="text-lg font-semibold">Admin Bot</p>

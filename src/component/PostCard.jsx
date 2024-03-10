@@ -23,7 +23,7 @@ const PostCard = (props) => {
   const [tipCoin, setTipCoin] = useState(1);
   const [spin, setSpin] = useState(false);
   const [image1,setImage1] =useState({
-    main: 'https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&',
+    main: 'https://i.imgur.com/2ksquEu.png',
     alternate: 'https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&',
   })
   const [isAlertSuccess,setIsAlertSuccess] = useState(false)

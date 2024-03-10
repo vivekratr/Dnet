@@ -7,8 +7,7 @@ import "reactjs-popup/dist/index.css";
 import PostComponent from "./PostComponent";
 import ProfilePost from "./ProfilePost";
 import Withdraw from "./Withdraw";
-import Alert from '@mui/material/Alert';
-
+import Alert from "@mui/material/Alert";
 
 const Profile1 = () => {
   const navigate = useNavigate();
@@ -25,43 +24,46 @@ const Profile1 = () => {
   const [userData, setUserData] = useState([]);
   const [count, setCount] = useState(10);
   const [isWithdrawCoinModal, setIsWithdrawCoinModal] = useState(false);
-  const [scanToPay,setScanToPay] = useState(false)
+  const [scanToPay, setScanToPay] = useState(false);
   const [countWithdraw, setCountWithdraw] = useState(10);
-  const [isAlertSuccess,setIsAlertSuccess] = useState(false)
-  const [successAlertContent,setSuccessAlertContent]= useState('');
-  const [isAlertInfo,setIsAlertInfo] = useState(false);
+  const [isAlertSuccess, setIsAlertSuccess] = useState(false);
+  const [successAlertContent, setSuccessAlertContent] = useState("");
+  const [isAlertInfo, setIsAlertInfo] = useState(false);
   const [spin, setSpin] = useState(false);
   const [rewardLikes, setRewardLikes] = useState(0);
   const [rewardComments, setRewardComments] = useState(0);
-  const [analytics, setAnalytic] = useState(false)
-  const [image1,setImage1] =useState({
-    main: 'https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&',
-    alternate: 'https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&',
-  })
-  const [image2,setImage2] =useState({
-    main: 'https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&',
-    alternate: 'https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&',
-  })
-  const [image3,setImage3] =useState({
-    main: 'https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&',
-    alternate: 'https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&',
-  })
-  const [image4,setImage4] =useState({
-    main: 'https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&',
-    alternate: 'https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&',
-  })
+  const [analytics, setAnalytic] = useState(false);
+  const [image1, setImage1] = useState({
+    main: "https://i.imgur.com/2ksquEu.png",
+    alternate:
+      "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
+  });
+  const [image2, setImage2] = useState({
+    main: "https://i.imgur.com/2ksquEu.png",
+    alternate:
+      "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
+  });
+  const [image3, setImage3] = useState({
+    main: "https://i.imgur.com/2ksquEu.png",
+    alternate:
+      "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
+  });
+  const [image4, setImage4] = useState({
+    main: "https://i.imgur.com/2ksquEu.png",
+    alternate:
+      "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
+  });
 
   const handleIncrementWithdraw = () => {
     setCountWithdraw((prevCount) => prevCount + 1);
   };
   const showSuccessPopup = (successMessage) => {
-    console.log('ShowSuccess',successMessage);
+    console.log("ShowSuccess", successMessage);
     setSuccessAlertContent(successMessage);
     setIsAlertSuccess(true);
     setTimeout(() => {
-    setIsAlertSuccess(false);
-
-    }, 5000); 
+      setIsAlertSuccess(false);
+    }, 5000);
   };
 
   const handleDecrementWithdraw = () => {
@@ -76,9 +78,7 @@ const Profile1 = () => {
     setRegUsername(e.target.value);
   }
 
-  const [imageUrl, setImageUrl] = useState(
-    "https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
-  );
+  const [imageUrl, setImageUrl] = useState("https://i.imgur.com/2ksquEu.png");
 
   const handleClick = () => {
     // Change the image URL to the new image source when the button is clicked
@@ -87,16 +87,16 @@ const Profile1 = () => {
     ); // Replace with your desired new image source URL
   };
 
-  function handleQr(){
-    setScanToPay((prev)=>{
+  function handleQr() {
+    setScanToPay((prev) => {
       return !prev;
-    })
+    });
   }
 
-  function handleAnalytic(){
-    setAnalytic((prev)=>{
+  function handleAnalytic() {
+    setAnalytic((prev) => {
       return !prev;
-    })
+    });
   }
 
   const imgLinks = [
@@ -123,7 +123,6 @@ const Profile1 = () => {
     getUserPrivatePost,
     withdrawCoins,
     getRewardStatus,
-
   } = useContext(Context);
   const handleConnectWallet = async () => {
     await ConnectWallet();
@@ -138,14 +137,14 @@ const Profile1 = () => {
         const privatePost = await getAllPrivatePost();
         const userPrivate = await getUserPrivatePost(currentAccount);
         const _reward = await getRewardStatus(currentAccount);
-      console.log("reward score", Number(_reward));
+        console.log("reward score", Number(_reward));
 
-      const _tempLike = Math.floor(_reward / 1000);
-      const _tempComment = _reward % 1000;
+        const _tempLike = Math.floor(_reward / 1000);
+        const _tempComment = _reward % 1000;
 
-      console.log("reward score ceil", _tempLike, " comment", _tempComment);
-      setRewardComments(_tempComment);
-      setRewardLikes(_tempLike);
+        console.log("reward score ceil", _tempLike, " comment", _tempComment);
+        setRewardComments(_tempComment);
+        setRewardLikes(_tempLike);
 
         //  const login =async ()=>{num= await isNewUser()} ;
         //  login();
@@ -184,37 +183,61 @@ const Profile1 = () => {
   }, [currentAccount, refresh, num]);
   return (
     <div className="bg-black min-h-max  h-[150vh]">
-      {/* scan to pay 
+      {/* scan to pay
        */}
-       <div onClick={handleQr} className={`absolute h-full w-full backdrop-blur-lg z-20 flex items-center justify-center ${scanToPay?'block':'hidden'} `}>
-                        <div className="flex flex-col bg-white p-6 rounded-lg">
-                          <div>
-                            <img className=" object-cover w-[296px]" src="https://i.imgur.com/GwTRMRy.jpeg" alt="" />
-                          </div>
+      <div
+        onClick={handleQr}
+        className={`absolute h-full w-full backdrop-blur-lg z-20 flex items-center justify-center ${
+          scanToPay ? "block" : "hidden"
+        } `}
+      >
+        <div className="flex flex-col bg-white p-6 rounded-lg">
+          <div>
+            <img
+              className=" object-cover w-[296px]"
+              src="https://i.imgur.com/GwTRMRy.jpeg"
+              alt=""
+            />
+          </div>
 
-                          <div className=" w-max mx-auto bg-black text-white p-5 rounded-lg">
-                            Confirm
-                          </div>
-
-                        </div>
-                        </div>
-                        {/* scan to pay end
-       */}
-       <div onClick={handleAnalytic} className={`absolute h-full w-full backdrop-blur-lg z-20 flex items-center justify-center ${analytics?'block':'hidden'} `}>
-        <div>
-          <img className=" object-cover" src="https://i.imgur.com/l1N7Bze.png" alt="" />
+          <div className=" w-max mx-auto bg-black text-white p-5 rounded-lg">
+            Confirm
+          </div>
         </div>
-</div>
+      </div>
+      {/* scan to pay end
+       */}
+      <div
+        onClick={handleAnalytic}
+        className={`absolute h-full w-full backdrop-blur-lg z-20 flex items-center justify-center ${
+          analytics ? "block" : "hidden"
+        } `}
+      >
+        <div>
+          <img
+            className=" object-cover"
+            src="https://i.imgur.com/l1N7Bze.png"
+            alt=""
+          />
+        </div>
+      </div>
       <div className="flex max-h-[150vh] h-[100vh]">
-         {/* alert success */}
-         <div  className={`absolute z-20 ml-[34rem] mt-10 ${isAlertSuccess?'flex':'hidden'}`}>
-        <Alert severity="success">{successAlertContent}</Alert>
+        {/* alert success */}
+        <div
+          className={`absolute z-20 ml-[34rem] mt-10 ${
+            isAlertSuccess ? "flex" : "hidden"
+          }`}
+        >
+          <Alert severity="success">{successAlertContent}</Alert>
         </div>
         {/* alert success end */}
         {/* alert info */}
-        <div className={`absolute z-20 ml-[34rem] mt-10 ${isAlertInfo?'flex':'hidden'}`}>
-
-        <Alert severity="info">Waiting for Metamask...</Alert>
+        <div
+          className={`absolute z-20 ml-[34rem] mt-10 ${
+            isAlertInfo ? "flex" : "hidden"
+          }`}
+        >
+          <Alert severity="info">Waiting for Metamask...</Alert>
         </div>
         {/* alert info end */}
         {/* spinner */}
@@ -318,7 +341,7 @@ const Profile1 = () => {
                 <img
                   className="relative bottom-[0.2rem] w-[1.31rem] h-[1.31rem] overflow-hidden shrink-0"
                   alt=""
-                  src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069163149426688/image.png?ex=658aa157&is=65782c57&hm=b3e917cf7d418c2b76b3310202154b605793f6e57e3f21bb591d706a26f0305e&"
+                  src="https://i.imgur.com/gogpnv2.png"
                 />
                 <div className="relative font-medium ">Home</div>
               </div>
@@ -478,9 +501,17 @@ const Profile1 = () => {
                                         />
                                       </div>
                                     </div>
-                                    <div onClick={async()=>{
-                                      await withdrawCoins(countWithdraw,setSpin,showSuccessPopup,setIsAlertInfo);
-                                    }} className="relative hover:scale-110 rounded-6xs [background:linear-gradient(93.84deg,_#ffb602,_rgba(255,_182,_2,_0))] box-border w-[293px] h-[45px] overflow-hidden shrink-0 text-lg text-black border-t-[1px] border-solid border-peachpuff">
+                                    <div
+                                      onClick={async () => {
+                                        await withdrawCoins(
+                                          countWithdraw,
+                                          setSpin,
+                                          showSuccessPopup,
+                                          setIsAlertInfo
+                                        );
+                                      }}
+                                      className="relative hover:scale-110 rounded-6xs [background:linear-gradient(93.84deg,_#ffb602,_rgba(255,_182,_2,_0))] box-border w-[293px] h-[45px] overflow-hidden shrink-0 text-lg text-black border-t-[1px] border-solid border-peachpuff"
+                                    >
                                       <div className="absolute top-[12px] left-[72px] font-semibold">
                                         Withdraw Money
                                       </div>
@@ -560,9 +591,6 @@ const Profile1 = () => {
                           Scan To Pay
                         </div>
                       </div>
-                      
-
-
                     </div>
                     <div className="absolute top-[143px] left-[0px] w-[229px] h-[22px] shrink-0 text-colors-gray-500">
                       {/* <img
@@ -694,87 +722,82 @@ const Profile1 = () => {
                 @amitsinha.dso
               </div>
               <img
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+                src="https://i.imgur.com/DIdPWfs.png"
                 className="absolute top-[5.13rem] left-[1.06rem] rounded-lg bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
               />
               <img
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+                src="https://i.imgur.com/DIdPWfs.png"
                 className="absolute top-[9.44rem] left-[1.06rem] rounded-lg bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
               />
               <img
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+                src="https://i.imgur.com/DIdPWfs.png"
                 className="absolute top-[13.75rem] left-[1.06rem] rounded-lg bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
               />
               <img
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184072438695338046/image.png?ex=658aa464&is=65782f64&hm=633b38526fb6b6da794465b600fb96b51339200700063e89bf541465c40aec95&"
+                src="https://i.imgur.com/DIdPWfs.png"
                 className="absolute top-[18.06rem] left-[1.06rem] rounded-lg bg-white w-[2.25rem] h-[2.25rem] overflow-hidden"
               />
-             
-             
-             <img
-  onClick={() => {
-    setImage1((prev) => {
-      const newImages = { ...prev };
-      return {
-        ...prev,
-        main: newImages.alternate,
-        alternate: newImages.main,
-      };
-    });
-  }}
-  className="absolute top-[5.06rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
-  alt=""
-  src={image1.main}
-/>
 
-               
-            
               <img
-               onClick={() => {
-                setImage2((prev) => {
-                  const newImages = { ...prev };
-                  return {
-                    ...prev,
-                    main: newImages.alternate,
-                    alternate: newImages.main,
-                  };
-                });
-              }}
+                onClick={() => {
+                  setImage1((prev) => {
+                    const newImages = { ...prev };
+                    return {
+                      ...prev,
+                      main: newImages.alternate,
+                      alternate: newImages.main,
+                    };
+                  });
+                }}
+                className="absolute top-[5.06rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
+                alt=""
+                src={image1.main}
+              />
+
+              <img
+                onClick={() => {
+                  setImage2((prev) => {
+                    const newImages = { ...prev };
+                    return {
+                      ...prev,
+                      main: newImages.alternate,
+                      alternate: newImages.main,
+                    };
+                  });
+                }}
                 className="absolute top-[9.38rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
                 src={image2.main}
               />
               <img
-               onClick={() => {
-                setImage3((prev) => {
-                  const newImages = { ...prev };
-                  return {
-                    ...prev,
-                    main: newImages.alternate,
-                    alternate: newImages.main,
-                  };
-                });
-              }}
+                onClick={() => {
+                  setImage3((prev) => {
+                    const newImages = { ...prev };
+                    return {
+                      ...prev,
+                      main: newImages.alternate,
+                      alternate: newImages.main,
+                    };
+                  });
+                }}
                 className="absolute top-[13.69rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
                 src={image3.main}
-
               />
               <img
-               onClick={() => {
-                setImage4((prev) => {
-                  const newImages = { ...prev };
-                  return {
-                    ...prev,
-                    main: newImages.alternate,
-                    alternate: newImages.main,
-                  };
-                });
-              }}
+                onClick={() => {
+                  setImage4((prev) => {
+                    const newImages = { ...prev };
+                    return {
+                      ...prev,
+                      main: newImages.alternate,
+                      alternate: newImages.main,
+                    };
+                  });
+                }}
                 className="absolute top-[18rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
                 src={image4.main}
-
               />
               <div className="absolute top-[21.88rem] left-[1.06rem] font-medium text-cornflowerblue">
                 Show More

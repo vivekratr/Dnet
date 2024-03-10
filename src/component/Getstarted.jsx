@@ -30,12 +30,14 @@ const Getstarted = () => {
         Decentralized Connectivity
       </b>
 
-      <div className="flex top-[50px] items-center justify-center h-screen">
-        <img
-          className="w-1000 h-200 object-cover"
-          src="https://cdn.discordapp.com/attachments/1184864067295395960/1185254143577817190/infinity.gif?ex=658ef0f0&is=657c7bf0&hm=0a8294c112bfb226885b79c75fa5fc9a5b964223db6c10a9fa35f2581dfd2dd8&" // Replace with the actual path or URL of your GIF
+      <div className="flex top-[50px] items-center justify-center -z-50 h-screen">
+        <video
+        autoPlay
+        loop
+          className="w-1000 h-200 object-cover "
+          src="https://cdn.discordapp.com/attachments/1184864067295395960/1185260148999069877/infinity.webm?ex=65fdb488&is=65eb3f88&hm=466fa1754948e59627c90b67519b4b150a47b2f0f7a44b434010a737062c11af&" // Replace with the actual path or URL of your GIF
           alt="GIF Alt Text"
-        />
+        > </video>
       </div>
 
       <div className="absolute w-full h-5 text-left text-[16px] text-white font-inter">
@@ -48,7 +50,7 @@ const Getstarted = () => {
           alt=""
           src="https://cdn.discordapp.com/attachments/1184864067295395960/1185503296924946452/image.png?ex=658fd8fb&is=657d63fb&hm=9ed3c8500b74d1698dbb8535dd329ef0771e9d1fc7fcb02ed0d35332a9716a86&"
         />
-        <div className="absolute top-[13px] left-[21px] font-medium">
+        <div className="absolute top-[13px] z-50 left-[21px] font-medium">
           Get Started
         </div>
       </div>

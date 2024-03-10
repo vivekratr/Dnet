@@ -550,7 +550,7 @@ const Home1 = () => {
                 <img
                   className="relative bottom-[0.2rem] w-[1.31rem] h-[1.31rem] overflow-hidden shrink-0"
                   alt=""
-                  src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069163149426688/image.png?ex=658aa157&is=65782c57&hm=b3e917cf7d418c2b76b3310202154b605793f6e57e3f21bb591d706a26f0305e&"
+                  src="https://imgur.com/gogpnv2"
                 />
                 <div className="relative font-medium ">Home</div>
               </div>

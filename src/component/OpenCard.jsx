@@ -43,25 +43,25 @@ const OpenCard = () => {
 
   const [image1, setImage1] = useState({
     main:
-      "https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&",
+      "https://i.imgur.com/2ksquEu.png",
     alternate:
       "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
   });
   const [image2, setImage2] = useState({
     main:
-      "https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&",
+      "https://i.imgur.com/2ksquEu.png",
     alternate:
       "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
   });
   const [image3, setImage3] = useState({
     main:
-      "https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&",
+      "https://i.imgur.com/2ksquEu.png",
     alternate:
       "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
   });
   const [image4, setImage4] = useState({
     main:
-      "https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&",
+      "https://i.imgur.com/2ksquEu.png",
     alternate:
       "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&",
   });
@@ -91,7 +91,7 @@ const OpenCard = () => {
   }
 
   const [imageUrl, setImageUrl] = useState(
-    "https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+    "https://i.imgur.com/2ksquEu.png"
   );
 
   const handleClick = () => {
@@ -379,7 +379,7 @@ const OpenCard = () => {
                 <img
                   className="relative bottom-[0.2rem] w-[1.31rem] h-[1.31rem] overflow-hidden shrink-0"
                   alt=""
-                  src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069163149426688/image.png?ex=658aa157&is=65782c57&hm=b3e917cf7d418c2b76b3310202154b605793f6e57e3f21bb591d706a26f0305e&"
+                  src="https://imgur.com/gogpnv2"
                 />
                 <div className="relative font-medium ">Home</div>
               </div>

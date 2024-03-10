@@ -176,7 +176,7 @@ const Communities = () => {
                 <img
                   className="relative bottom-[0.2rem] w-[1.31rem] h-[1.31rem] overflow-hidden shrink-0"
                   alt=""
-                  src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069163149426688/image.png?ex=658aa157&is=65782c57&hm=b3e917cf7d418c2b76b3310202154b605793f6e57e3f21bb591d706a26f0305e&"
+                  src="https://imgur.com/gogpnv2"
                 />
                 <div className="relative font-medium ">Home</div>
               </div>
@@ -450,22 +450,22 @@ const Communities = () => {
               <img
                 className="absolute top-[5.06rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+                src="https://i.imgur.com/2ksquEu.png"
               />
               <img
                 className="absolute top-[9.38rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+                src="https://i.imgur.com/2ksquEu.png"
               />
               <img
                 className="absolute top-[13.69rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+                src="https://i.imgur.com/2ksquEu.png"
               />
               <img
                 className="absolute top-[18rem] left-[12.94rem] rounded-lg w-[2.38rem] h-[2.38rem] overflow-hidden"
                 alt=""
-                src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&"
+                src="https://i.imgur.com/2ksquEu.png"
               />
               <div className="absolute top-[21.88rem] left-[1.06rem] font-medium text-cornflowerblue">
                 Show More

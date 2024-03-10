@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Popup from "./Popup";
 import "reactjs-popup/dist/index.css";
 import PostComponent from "./PostComponent";
+import ChatUI from "./ChatUI";
 
 const Messages = () => {
   const navigate = useNavigate();
@@ -149,7 +150,7 @@ const Messages = () => {
                 <img
                   className="relative bottom-[0.2rem] w-[1.31rem] h-[1.31rem] overflow-hidden shrink-0"
                   alt=""
-                  src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069163149426688/image.png?ex=658aa157&is=65782c57&hm=b3e917cf7d418c2b76b3310202154b605793f6e57e3f21bb591d706a26f0305e&"
+                  src="https://imgur.com/gogpnv2"
                 />
                 <div className="relative font-medium ">Home</div>
               </div>
@@ -242,10 +243,8 @@ const Messages = () => {
               src=" https://cdn.discordapp.com/attachments/1177492390949441610/1184839798431678514/image.png?ex=658d6f0d&is=657afa0d&hm=dcc98454a28e222019bc3dc45b64d1672920b156aaa0525ab21b67062ab129ae&"
             />
             <b className="absolute top-[3px] left-[43px] text-left">Messages</b>
-            <div className="absolute top-[345px] left-[177px] text-[16px] font-medium text-dimgray">{`Send private photos and messages to a friend or group `}</div>
-            <div className="absolute top-[313px] left-[322px] text-[18px] font-medium">
-              Your messages
-            </div>
+            <div className="absolute top-[345px] left-[-177px] text-[16px] font-medium text-dimgray">{`Send private photos and messages to a friend or group `}</div>
+           <ChatUI currentAccount = {currentAccount}/>
             <img
               className="absolute h-[40.4%] w-[36%] top-[29.12%] right-[100.29%] bottom-[46.87%] left-[33%] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
