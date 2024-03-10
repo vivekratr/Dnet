@@ -368,7 +368,7 @@ const OpenCard = () => {
           <div className="flex ">
             <img
               className="relative bottom-[3rem] w-full h-[9.25rem] object-cover"
-              src="https://cdn.discordapp.com/attachments/1177492390949441610/1183783874153680966/image.png?ex=658997a5&is=657722a5&hm=14a6d7aa3bb675c16e9b5d4b8c83d33a278313a173fc5904d709aa60cdcd8d48&"
+              src="https://i.imgur.com/JoQomCC.jpeg"
               alt=""
             />
           </div>
@@ -440,7 +440,7 @@ const OpenCard = () => {
             <img
               className="absolute cursor-pointer top-[0rem] left-[11.75rem] w-[1.5rem] h-[1.5rem] overflow-hidden"
               alt=""
-              src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074199577415741/image.png?ex=658aa608&is=65783108&hm=49441e880ec9e668ecd4fb83e21c896b03b202d851882189adb757ce47dd3e6f&"
+              src="https://i.imgur.com/UU8RPw0.png"
             />
           </div>
         </div>
@@ -534,6 +534,10 @@ const OpenCard = () => {
           <div onClick={voteNow} className="opencard_div1_card2 effect ">
             <p title="Vote">Vote for Good</p>
           </div>
+
+          <a target="_blank" className=" outline-none  mt-4" href="https://calendly.com/swayamsharma7021/30min"><div  className="opencard_div1_card2 effect ">
+            <p title="schedule">Schedule Meeting</p>
+          </div></a>
           
           <div className="opencard_div1_card3">
             <div className="opencard_div1_card3_1">

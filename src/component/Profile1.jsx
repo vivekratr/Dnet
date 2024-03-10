@@ -25,6 +25,7 @@ const Profile1 = () => {
   const [userData, setUserData] = useState([]);
   const [count, setCount] = useState(10);
   const [isWithdrawCoinModal, setIsWithdrawCoinModal] = useState(false);
+  const [scanToPay,setScanToPay] = useState(false)
   const [countWithdraw, setCountWithdraw] = useState(10);
   const [isAlertSuccess,setIsAlertSuccess] = useState(false)
   const [successAlertContent,setSuccessAlertContent]= useState('');
@@ -32,7 +33,7 @@ const Profile1 = () => {
   const [spin, setSpin] = useState(false);
   const [rewardLikes, setRewardLikes] = useState(0);
   const [rewardComments, setRewardComments] = useState(0);
-
+  const [analytics, setAnalytic] = useState(false)
   const [image1,setImage1] =useState({
     main: 'https://cdn.discordapp.com/attachments/1177493315898314792/1184074670744551474/image.png?ex=658aa678&is=65783178&hm=c7bd009be31c8353e4371ee931a7146052b94e697a9529a6997619afe2c153ad&',
     alternate: 'https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&',
@@ -85,6 +86,18 @@ const Profile1 = () => {
       "https://cdn.discordapp.com/attachments/1184864067295395960/1185693981800149102/image.png?ex=65908a92&is=657e1592&hm=6932cde68b59daabb1f360bbad1d341547b721343003999b85bb19d5ac546ff8&"
     ); // Replace with your desired new image source URL
   };
+
+  function handleQr(){
+    setScanToPay((prev)=>{
+      return !prev;
+    })
+  }
+
+  function handleAnalytic(){
+    setAnalytic((prev)=>{
+      return !prev;
+    })
+  }
 
   const imgLinks = [
     "https://cdn.discordapp.com/attachments/1148598201314725913/1164977604483371068/image.png?ex=65452cf1&is=6532b7f1&hm=89fd657197685f46d1a5b5f8e88e9a0ed71f85854024cba35069197b1a10e1a7&",
@@ -171,6 +184,27 @@ const Profile1 = () => {
   }, [currentAccount, refresh, num]);
   return (
     <div className="bg-black min-h-max  h-[150vh]">
+      {/* scan to pay 
+       */}
+       <div onClick={handleQr} className={`absolute h-full w-full backdrop-blur-lg z-20 flex items-center justify-center ${scanToPay?'block':'hidden'} `}>
+                        <div className="flex flex-col bg-white p-6 rounded-lg">
+                          <div>
+                            <img className=" object-cover w-[296px]" src="https://i.imgur.com/GwTRMRy.jpeg" alt="" />
+                          </div>
+
+                          <div className=" w-max mx-auto bg-black text-white p-5 rounded-lg">
+                            Confirm
+                          </div>
+
+                        </div>
+                        </div>
+                        {/* scan to pay end
+       */}
+       <div onClick={handleAnalytic} className={`absolute h-full w-full backdrop-blur-lg z-20 flex items-center justify-center ${analytics?'block':'hidden'} `}>
+        <div>
+          <img className=" object-cover" src="https://i.imgur.com/l1N7Bze.png" alt="" />
+        </div>
+</div>
       <div className="flex max-h-[150vh] h-[100vh]">
          {/* alert success */}
          <div  className={`absolute z-20 ml-[34rem] mt-10 ${isAlertSuccess?'flex':'hidden'}`}>
@@ -273,7 +307,7 @@ const Profile1 = () => {
           <div className="flex ">
             <img
               className="relative bottom-[3rem] w-full h-[9.25rem] object-cover"
-              src="https://cdn.discordapp.com/attachments/1177492390949441610/1183783874153680966/image.png?ex=658997a5&is=657722a5&hm=14a6d7aa3bb675c16e9b5d4b8c83d33a278313a173fc5904d709aa60cdcd8d48&"
+              src="https://i.imgur.com/JoQomCC.jpeg"
               alt=""
             />
           </div>
@@ -300,7 +334,7 @@ const Profile1 = () => {
                 <img
                   className="relative w-[1.06rem] h-[1rem]"
                   alt=""
-                  src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069837249593365/image.png?ex=658aa1f8&is=65782cf8&hm=7476237b6fb89bdbebae10a3771913532a001efdbe6b3220e545a2a6b857fa19&"
+                  src="https://i.imgur.com/6XKA7yr.png"
                 />
                 <div className="relative font-medium">Messages</div>
               </div>
@@ -345,7 +379,7 @@ const Profile1 = () => {
             <img
               className="absolute cursor-pointer top-[0rem] left-[11.75rem] w-[1.5rem] h-[1.5rem] overflow-hidden"
               alt=""
-              src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074199577415741/image.png?ex=658aa608&is=65783108&hm=49441e880ec9e668ecd4fb83e21c896b03b202d851882189adb757ce47dd3e6f&"
+              src="https://i.imgur.com/UU8RPw0.png"
             />
           </div>
         </div>
@@ -515,6 +549,20 @@ const Profile1 = () => {
                           </div>
                         )}
                       </div>
+
+                      <div
+                        onClick={() => {
+                          setScanToPay(true);
+                        }}
+                        className="absolute top-[0px] right-[-90px] rounded-[46px] [background:linear-gradient(106.75deg,_#fdd835,_#fff_49.15%,_#ffd000)] w-[103px] h-[41px] overflow-hidden"
+                      >
+                        <div className="absolute top-[12px] left-[18px] text-[0.71rem] text-black font-medium ">
+                          Scan To Pay
+                        </div>
+                      </div>
+                      
+
+
                     </div>
                     <div className="absolute top-[143px] left-[0px] w-[229px] h-[22px] shrink-0 text-colors-gray-500">
                       {/* <img
@@ -531,6 +579,16 @@ const Profile1 = () => {
                       <div className="absolute top-[0px] left-[117px]">20</div>
                       <div className="absolute top-[0px] left-[147px] text-colors-gray-500">
                         Followers
+                      </div>
+                      <div
+                        onClick={() => {
+                          setAnalytic(true);
+                        }}
+                        className="absolute top-[0px] right-[-190px] rounded-[46px] bg-lightskyblue w-[103px] h-[41px] overflow-hidden"
+                      >
+                        <div className="absolute top-[12px] left-[18px] text-[0.71rem] text-black font-medium ">
+                          Analytics
+                        </div>
                       </div>
                     </div>
                   </div>

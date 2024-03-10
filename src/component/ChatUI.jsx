@@ -1,27 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const ChatUI = () => {
     const [messages, setMessages] = useState([]);
-    const [messages1, setMessages1] = useState([]);
     const [userInput, setUserInput] = useState('');
     const [isChatboxOpen, setIsChatboxOpen] = useState(true);
-    const userID ='1'
+    const userID =  '1';
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:5000/messageinsert', { message: userInput });
+            const data = response.data;
+            data.forEach((e) => {
+                const message = { text: e.message, sender: e.user === '1' ? 'user' : 'bot' };
+                setMessages(prevMessages => [...prevMessages, message]);
+            });
+        } catch (error) {
+            console.error('Error sending text:', error);
+        }
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.post('http://127.0.0.1:5000/getmessages', { message: userInput });
+                const data = response.data;
+                data.forEach((e) => {
+                    const message = { text: e.message, sender: e.user === '1' ? 'user' : 'bot' };
+                    setMessages(prevMessages => [...prevMessages, message]);
+                });
+            } catch (error) {
+                console.error('Error sending text:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const handleSend = () => {
-        if (userID== '1') {
-            const userMessage = { text: userInput, sender: 'user' };
-            setMessages([...messages, userMessage]); // Add user message to the messages array
-            // setUserInput('');
-            // Simulate bot response after a short delay
-            // setTimeout(() => {
-            //     const botResponse = { text: 'This is a response from the chatbot.', sender: 'bot' };
-            //     setMessages([...messages, botResponse]); // Add bot response to the messages array
-            // }, 500);
-        }
-        else{
-            const userMessage = { text: userInput, sender: 'bot' };
-            setMessages([...messages, userMessage]);
-        }
+        const message = { text: userInput, sender: userID === '1' ? 'user' : 'bot' };
+        setMessages(prevMessages => [...prevMessages, message]);
     };
 
     const toggleChatbox = () => {
@@ -49,7 +67,7 @@ const ChatUI = () => {
                     <div className="p-4 h-80 overflow-y-auto">
                         {messages.map((message, index) => (
                             <div key={index} className={`mb-2 ${message.sender === 'user' ? 'text-right' : 'text-left'}`}>
-                                <p className={`bg-${message.sender === 'user' ? 'blue-500' : 'gray-200'} text-${message.sender === 'user' ? 'black' : 'gray-700'} rounded-lg py-2 px-4 inline-block`}>{message.text}</p>
+                                <p className={`bg-${message.sender === 'user' ? 'blue-500' : 'gray-500'} text-${message.sender === 'user' ? 'black' : 'gray-700'} rounded-lg py-2 px-4 inline-block`}>{message.text}</p>
                             </div>
                         ))}
                     </div>

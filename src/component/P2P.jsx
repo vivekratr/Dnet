@@ -40,6 +40,8 @@ const P2P = () => {
   const [rewardLikes, setRewardLikes] = useState(0);
   const [rewardComments, setRewardComments] = useState(0);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
+  const [scanToPay,setScanToPay] = useState(true)
+
   //   const {getManager,manager} = useContext(Context);
 
   const [image1, setImage1] = useState({
@@ -84,6 +86,12 @@ function handleWalletDialog(){
         return !prev
     })
 }
+
+function handleQr(){
+    setScanToPay((prev)=>{
+      return !prev;
+    })
+  }
   const handleDecrementWithdraw = () => {
     if (countWithdraw > 10) {
       setCountWithdraw((prevCount) => prevCount - 1);
@@ -196,6 +204,22 @@ function handleWalletDialog(){
         {/* <div className="h-full w-full flex items-center justify-center backdrop-blur-lg z-20 absolute">
             <P2Pregister />
         </div> */}
+        {/* scan to pay 
+       */}
+       <div  className={`absolute h-full w-full backdrop-blur-lg z-20 flex items-center justify-center ${scanToPay?'block':'hidden'} `}>
+                        <div className="flex flex-col z-50 bg-white p-6 rounded-lg">
+                          <div>
+                            <img className=" object-cover w-[296px]" src="https://i.imgur.com/GwTRMRy.jpeg" alt="" />
+                          </div>
+
+                          <div onClick={handleQr} className=" w-max mx-auto bg-black text-white p-5 rounded-lg">
+                            Confirm
+                          </div>
+
+                        </div>
+                        </div>
+                        {/* scan to pay end
+       */}
       <div className="flex ">
         {/* alert success */}
         <div
@@ -301,11 +325,11 @@ function handleWalletDialog(){
         {/* register modal end */}
 
         {/* options */}
-        <div className="flex flex-col min-w-[20.25rem] min-h-max h-full bg-black items-center justify-around border-r-[1px] border-solid border-gray-700 box-border">
+        <div className="flex flex-col min-w-[20.25rem] min-h-screen  bg-black items-center justify-around border-r-[1px] border-solid border-gray-700 box-border">
           <div className="flex ">
             <img
               className="relative bottom-[3rem] w-full h-[9.25rem] object-cover"
-              src="https://cdn.discordapp.com/attachments/1177492390949441610/1183783874153680966/image.png?ex=658997a5&is=657722a5&hm=14a6d7aa3bb675c16e9b5d4b8c83d33a278313a173fc5904d709aa60cdcd8d48&"
+              src="https://i.imgur.com/JoQomCC.jpeg"
               alt=""
             />
           </div>
@@ -448,7 +472,13 @@ function handleWalletDialog(){
 <div className=" font-medium inline-block w-[8.938rem]">All transactions Ledger</div>
 </div>
 
-<div className="relative ml-[337px] h-[37px] flex items-center justify-center">
+<div  onClick={() => {
+                          setScanToPay(true);
+                        }} className="w-[87px] ml-6 top-2 flex items-center justify-center relative rounded-[3px] bg-white [background:linear-gradient(179.57deg,_#fff)] h-[1.563rem] overflow-hidden text-left text-[0.625rem] text-black font-inter">
+          <div className=" font-medium">Buy Money</div>
+        </div>
+
+<div className="relative ml-[307px] h-[37px] flex items-center justify-center">
                   <img
                     className="w-[134px] absolute h-full object-cover"
                     src="https://i.imgur.com/A5ouzTv.png"

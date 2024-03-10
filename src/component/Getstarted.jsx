@@ -39,7 +39,7 @@ const Getstarted = () => {
       </div>
 
       <div className="absolute w-full h-5 text-left text-[16px] text-white font-inter">
-        <div className="absolute bottom-[78px] left-[630px] font-medium whitespace-pre-wrap">{`Made With ❤️ in Mumbai Hacks `}</div>
+        <div className="absolute bottom-[78px] left-[630px] font-medium whitespace-pre-wrap">{`Made With ❤️ in LOC 6.0 `}</div>
       </div>
 
       <div className="relative top-[600px] left-[780px] w-full h-11 text-left text-[16px] text-white font-inter">

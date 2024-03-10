@@ -160,7 +160,7 @@ const Communities = () => {
           <div className="flex ">
             <img
               className="relative bottom-[3rem] w-full h-[9.25rem] object-cover"
-              src="https://cdn.discordapp.com/attachments/1177492390949441610/1183783874153680966/image.png?ex=658997a5&is=657722a5&hm=14a6d7aa3bb675c16e9b5d4b8c83d33a278313a173fc5904d709aa60cdcd8d48&"
+              src="https://i.imgur.com/JoQomCC.jpeg"
               alt=""
             />
           </div>
@@ -209,7 +209,7 @@ const Communities = () => {
                 <img
                   className="relative w-[1.06rem] h-[1rem]"
                   alt=""
-                  src="https://cdn.discordapp.com/attachments/1177493315898314792/1184069837249593365/image.png?ex=658aa1f8&is=65782cf8&hm=7476237b6fb89bdbebae10a3771913532a001efdbe6b3220e545a2a6b857fa19&"
+                  src="https://i.imgur.com/6XKA7yr.png"
                 />
                 <div className="relative font-medium">Messages</div>
               </div>
@@ -258,7 +258,7 @@ const Communities = () => {
             <img
               className="absolute top-[0rem] left-[11.75rem] w-[1.5rem] h-[1.5rem] overflow-hidden"
               alt=""
-              src="https://cdn.discordapp.com/attachments/1177493315898314792/1184074199577415741/image.png?ex=658aa608&is=65783108&hm=49441e880ec9e668ecd4fb83e21c896b03b202d851882189adb757ce47dd3e6f&"
+              src="https://i.imgur.com/UU8RPw0.png"
             />
           </div>
         </div>
