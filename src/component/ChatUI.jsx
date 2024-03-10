@@ -5,16 +5,16 @@ const ChatUI = () => {
     const [messages, setMessages] = useState([]);
     const [userInput, setUserInput] = useState('');
     const [isChatboxOpen, setIsChatboxOpen] = useState(true);
-    const userID =  '1';
+    const userID =  '0';
+    const update = 1
 
-    const fetchData = async () => {
+    const fetchData1 = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:5000/messageinsert', { message: userInput });
+            const response = await axios.post('http://127.0.0.1:5000/messageinsert', { message: userInput,user : userID });
             const data = response.data;
-            data.forEach((e) => {
-                const message = { text: e.message, sender: e.user === '1' ? 'user' : 'bot' };
-                setMessages(prevMessages => [...prevMessages, message]);
-            });
+            console.log(data)
+            update++;
+
         } catch (error) {
             console.error('Error sending text:', error);
         }
@@ -35,7 +35,7 @@ const ChatUI = () => {
         };
 
         fetchData();
-    }, []);
+    }, [update]);
 
     const handleSend = () => {
         const message = { text: userInput, sender: userID === '1' ? 'user' : 'bot' };
@@ -79,7 +79,12 @@ const ChatUI = () => {
                             value={userInput}
                             onChange={(e) => setUserInput(e.target.value)}
                         />
-                        <button onClick={handleSend} className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300">Send</button>
+                        <button onClick={
+                            ()=>{
+                                fetchData1()
+                            handleSend() 
+                            }
+                           } className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300">Send</button>
                     </div>
                 </div>
             </div>
